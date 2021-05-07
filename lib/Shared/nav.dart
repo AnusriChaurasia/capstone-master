@@ -1,8 +1,8 @@
-import 'package:capstone/budget_screen.dart';
-import 'package:capstone/home_screen.dart';
-import 'package:capstone/invest_screen.dart';
-import 'package:capstone/learn_screen.dart';
-import 'package:capstone/profile_screen.dart';
+import 'package:capstone/Screens/budget_screen.dart';
+import 'package:capstone/Screens/Home/home_screen.dart';
+import 'package:capstone/Screens/Invest/invest_screen.dart';
+import 'package:capstone/Screens/Learn/learn_screen.dart';
+import 'package:capstone/Screens/Profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class Nav extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'package:capstone/Screens/Login/login_screen.dart';
 import 'package:capstone/Screens/Signup/signup_screen.dart';
 import 'package:capstone/Screens/Welcome/components/background.dart';
 import 'package:capstone/components/rounded_button.dart';
-import 'package:capstone/constants.dart';
+import 'package:capstone/Shared/constants.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {

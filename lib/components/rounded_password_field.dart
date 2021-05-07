@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:capstone/components/text_field_container.dart';
-import 'package:capstone/constants.dart';
+import 'package:capstone/Shared/constants.dart';
 //import 'package:validators/validators.dart';
 
 class RoundedPasswordField extends StatelessWidget {

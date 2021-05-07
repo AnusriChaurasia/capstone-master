@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
 }*/
 
 import 'package:capstone/Screens/Signup/signup_screen.dart';
-import 'package:capstone/nav.dart';
+import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:capstone/components/text_field_container.dart';
 import 'package:capstone/constants.dart';
+//import 'package:validators/validators.dart';
 
 class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
@@ -12,7 +13,17 @@ class RoundedPasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
+      child: TextFormField(
+        // ignore: missing_return
+        validator: (value) {
+      // add your custom validation here.
+          if (value.isEmpty) {
+            return 'Please enter some text';
+          }
+          if (value.length <= 8) {
+            return 'Must be more than 8 charater';
+          }
+        },
         obscureText: true,
         onChanged: onChanged,
         cursorColor: kPrimaryColor,

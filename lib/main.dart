@@ -1,8 +1,17 @@
 //import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 
+import 'package:capstone/Screens/Home/home_screen.dart';
+import 'package:capstone/Screens/Login/login_screen.dart';
+import 'package:capstone/Screens/Profile/profile_screen.dart';
 import 'package:capstone/Screens/Welcome/welcome_screen.dart';
+import 'package:capstone/Screens/budget_screen.dart';
+import 'package:capstone/shared/nav.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'Screens/Invest/invest_screen.dart';
+import 'Screens/Learn/learn_screen.dart';
+
 //import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 //import 'package:capstone/nav.dart';
 void main() async {
@@ -59,8 +68,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+
+      // Named Routes
+      routes: {
+        //'/': (context) => SignInPage(),
+        '/profile': (context) => Profile(),
+        '/learn': (context) => Learn(),
+        '/invest': (context) => Invest(),
+        '/home': (context) => Home(),
+        '/budget': (context) => Budget(),
+      },
+
       home: WelcomeScreen(),
     );
   }
 }
-

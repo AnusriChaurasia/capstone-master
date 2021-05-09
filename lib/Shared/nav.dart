@@ -32,11 +32,15 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('FinExpress'),
-      //   backgroundColor: Colors.deepOrange[400],
-      //   centerTitle: true,
-      //   ),
+      appBar: AppBar(
+        title: Text(
+          'FinExpress',
+          style: TextStyle(
+            color: kPrimaryColor,
+        ),),
+        elevation: 0,
+        backgroundColor: kPrimaryLightColor,
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

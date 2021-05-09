@@ -1,10 +1,12 @@
 //import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 
 import 'package:capstone/Screens/Home/home_screen.dart';
+// ignore: unused_import
 import 'package:capstone/Screens/Login/login_screen.dart';
 import 'package:capstone/Screens/Profile/profile_screen.dart';
 import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 import 'package:capstone/Screens/budget_screen.dart';
+// ignore: unused_import
 import 'package:capstone/shared/nav.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,9 @@ import 'Screens/Learn/learn_screen.dart';
 
 
 //import 'package:capstone/Screens/Welcome/welcome_screen.dart';
+// ignore: duplicate_import
 import 'package:firebase_core/firebase_core.dart';
+// ignore: duplicate_import
 import 'package:flutter/material.dart';
 
 //import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;

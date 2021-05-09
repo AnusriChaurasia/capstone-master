@@ -50,23 +50,23 @@ class _NavState extends State<Nav> {
             icon: Icon(
               Icons.lightbulb_outline,
             ),
-            label: "Learn",
+            title: Text("Learn"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.show_chart),
-            label: 'Invest',
+            title: Text('Invest'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            title: Text('Home'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pie_chart_outlined),
-            label: 'Budget',
+            title: Text('Budget'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
-            label: 'Profile',
+            title: Text('Profile'),
           ),
         ],
         currentIndex: _selectedIndex,

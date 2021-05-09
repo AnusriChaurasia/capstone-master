@@ -5,6 +5,8 @@ import 'package:capstone/Screens/Learn/learn_screen.dart';
 import 'package:capstone/Screens/Profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 class Nav extends StatefulWidget {
   Nav({Key key}) : super(key: key);
 
@@ -32,7 +34,15 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('FinExpress'),),
+      appBar: AppBar(
+        title: Text(
+          'FinExpress',
+          style: TextStyle(
+            color: kPrimaryColor,
+        ),),
+        elevation: 0,
+        backgroundColor: kPrimaryLightColor,
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -61,9 +71,9 @@ class _NavState extends State<Nav> {
       ],
       currentIndex: _selectedIndex,
       onTap: _onItemTap,
-      backgroundColor: Colors.blue[400],
-      selectedItemColor: Colors.black87,
-      unselectedItemColor: Colors.white,
+      backgroundColor: kPrimaryLightColor,
+      selectedItemColor: Colors.teal[700],
+      unselectedItemColor: kPrimaryColor,
       type: BottomNavigationBarType.fixed,
       )
       ,

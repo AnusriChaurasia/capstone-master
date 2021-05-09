@@ -1,10 +1,13 @@
 //import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 
-import 'package:capstone/Screens/Welcome/welcome_screen.dart';
+
+//import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'Shared/nav.dart';
 //import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-//import 'package:capstone/nav.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -56,10 +59,10 @@ class MyApp extends StatelessWidget {
       title: 'Capstone Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomeScreen(),
+      home: Nav(),
     );
   }
 }

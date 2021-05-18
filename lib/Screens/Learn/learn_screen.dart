@@ -2,7 +2,7 @@ import 'package:capstone/Screens/Learn/detailed_screen.dart';
 import 'package:capstone/Screens/Learn/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:capstone/shared/nav.dart';
+
 
 class Learn extends StatefulWidget {
   Learn({Key key}) : super(key: key);
@@ -53,7 +53,7 @@ class _LearnState extends State<Learn> {
                     "Hey Learner!! \n",
                     style: Theme.of(context)
                         .textTheme
-                        .display2
+                        .headline3
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
                   Expanded(

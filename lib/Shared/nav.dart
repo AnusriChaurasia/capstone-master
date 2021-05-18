@@ -34,7 +34,7 @@ class _NavState extends State<Nav> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'FinExpress',
+          'BillMatter',
           style: TextStyle(
             color: kPrimaryColor,
         ),),
@@ -50,23 +50,23 @@ class _NavState extends State<Nav> {
             icon: Icon(
               Icons.lightbulb_outline,
             ),
-            title: Text("Learn"),
+            label: 'Learn',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.show_chart),
-            title: Text('Invest'),
+            label: 'Invest',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pie_chart_outlined),
-            title: Text('Budget'),
+            label: 'Budget',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
-            title: Text('Profile'),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

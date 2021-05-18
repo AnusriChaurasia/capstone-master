@@ -55,14 +55,14 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 20,
               ),
-              buttonItem("assets/google.svg", "Continue with Google", 25),
+              /*buttonItem("assets/google.svg", "Continue with Google", 25),
               SizedBox(
                 height: 15,
               ),
               buttonItem("assets/phone.svg", "Continue with Mobile", 30),
               SizedBox(
                 height: 18,
-              ),
+              ),*/
               Text(
                 "Or",
                 style: TextStyle(color: Colors.white, fontSize: 18),
@@ -137,7 +137,7 @@ class _SignUpPageState extends State<SignUpPage> {
               (route) => false);
         } catch (e) {
           final snackbar = SnackBar(content: Text(e.toString()));
-          Scaffold.of(context).showSnackBar(snackbar);
+          ScaffoldMessenger.of(context).showSnackBar(snackbar);
           setState(() {
             circular = false;
           });

@@ -53,7 +53,7 @@ class _SignInPageState extends State<SignInPage> {
               SizedBox(
                 height: 20,
               ),
-              buttonItem("assets/google.svg", "Continue with Google", 25),
+              /*buttonItem("assets/google.svg", "Continue with Google", 25),
               SizedBox(
                 height: 15,
               ),
@@ -64,7 +64,7 @@ class _SignInPageState extends State<SignInPage> {
               Text(
                 "Or",
                 style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
+              ),*/
               SizedBox(
                 height: 18,
               ),
@@ -111,14 +111,14 @@ class _SignInPageState extends State<SignInPage> {
               SizedBox(
                 height: 10,
               ),
-              Text(
+              /*Text(
                 "Forgot Password?",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
-              ),
+              ),*/
             ],
           ),
         ),
@@ -143,7 +143,7 @@ class _SignInPageState extends State<SignInPage> {
               (route) => false);
         } catch (e) {
           final snackbar = SnackBar(content: Text(e.toString()));
-          Scaffold.of(context).showSnackBar(snackbar);
+          ScaffoldMessenger.of(context).showSnackBar(snackbar);
           setState(() {
             circular = false;
           });

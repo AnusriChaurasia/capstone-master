@@ -89,7 +89,7 @@ class DetailsScreen extends StatelessWidget {
                       "Meditation",
                       style: Theme.of(context)
                           .textTheme
-                          .title
+                          .headline6
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     Container(
@@ -121,7 +121,7 @@ class DetailsScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Basic 2",
-                                  style: Theme.of(context).textTheme.subtitle,
+                                  style: Theme.of(context).textTheme.subtitle2,
                                 ),
                                 Text("Start your deepen you practice")
                               ],
@@ -201,7 +201,7 @@ class SeassionCard extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       "Booster $seassionNum",
-                      style: Theme.of(context).textTheme.subtitle,
+                      style: Theme.of(context).textTheme.subtitle2,
                     )
                   ],
                 ),

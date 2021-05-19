@@ -7,14 +7,14 @@ import 'package:capstone/Screens/Profile/profile_screen.dart';
 // ignore: unused_import
 import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 import 'package:capstone/Screens/budget_screen.dart';
+import 'package:capstone/Shared/nav.dart';
 // ignore: unused_import
-import 'package:capstone/shared/nav.dart';
+import 'package:capstone/shared/nav.dart' as nav;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/Invest/invest_screen.dart';
 import 'Screens/Learn/learn_screen.dart';
-
 
 //import 'package:capstone/Screens/Welcome/welcome_screen.dart';
 // ignore: duplicate_import
@@ -25,9 +25,9 @@ import 'package:flutter/material.dart';
 //import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 void main() async {
-WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp();
-runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 /*class MyApp extends StatefulWidget {
@@ -69,27 +69,27 @@ return MaterialApp(
 
 class MyApp extends StatelessWidget {
 // This widget is the root of your application.
-@override
-Widget build(BuildContext context) {
-return MaterialApp(
-  title: 'Capstone Project',
-  debugShowCheckedModeBanner: false,
-  theme: ThemeData(
-    primarySwatch: Colors.lightBlue,
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-  ),
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Capstone Project',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
 
-  // Named Routes
-  routes: {
-    //'/': (context) => SignInPage(),
-    '/profile': (context) => Profile(),
-    '/learn': (context) => Learn(),
-    '/invest': (context) => Invest(),
-    '/home': (context) => Home(),
-    '/budget': (context) => Budget(),
-  },
+      // Named Routes
+      routes: {
+        //'/': (context) => SignInPage(),
+        '/profile': (context) => Profile(),
+        '/learn': (context) => Learn(),
+        '/invest': (context) => Invest(),
+        '/home': (context) => Home(),
+        '/budget': (context) => Budget(),
+      },
 
-  home: WelcomeScreen(),
-);
-}
+      home: WelcomeScreen(),
+    );
+  }
 }

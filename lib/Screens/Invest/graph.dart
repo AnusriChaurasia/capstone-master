@@ -34,18 +34,7 @@ class _GraphState extends State<Graph> {
   //double _chartLegendSpacing = 50;
 
   bool _showLegendsInRow = false;
-  bool _showLegends = true;
-
-  // ignore: unused_field
-  bool _showChartValueBackground = true;
-  // ignore: unused_field
-  bool _showChartValues = true;
-  // ignore: unused_field
-  bool _showChartValuesInPercentage = false;
-  // ignore: unused_field
-  bool _showChartValuesOutside = false;
-
-  
+  bool _showLegends = true;  
   //LegendShape _legendShape = LegendShape.Circle;
   //LegendPosition _legendPosition = LegendPosition.right;
 
@@ -81,9 +70,9 @@ class _GraphState extends State<Graph> {
       ),
       chartValuesOptions: ChartValuesOptions(
         showChartValueBackground: false,
-        showChartValues: _showChartValues,
+        showChartValues: true,
         showChartValuesInPercentage: true,
-        showChartValuesOutside: _showChartValuesOutside,
+        showChartValuesOutside: false,
       ),
       //ringStrokeWidth: _ringStrokeWidth,
       emptyColor: Colors.grey,
@@ -336,7 +325,7 @@ class _GraphState extends State<Graph> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Investment Options"),
-        backgroundColor: kPrimaryColor,
+        backgroundColor: kPrimaryColorPink,
         /*actions: [
           
           ElevatedButton(
@@ -351,10 +340,9 @@ class _GraphState extends State<Graph> {
 
       ),
       body: LayoutBuilder(
-        // ignore: missing_return
+        
         builder: (_, constraints) {
-          if (constraints.maxWidth >= 600) {
-            return Row(
+          return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
@@ -368,6 +356,8 @@ class _GraphState extends State<Graph> {
                 )*/
               ],
             );
+          /*if (constraints.maxWidth >= 600) {
+            
           } 
           else {
             return SingleChildScrollView(
@@ -383,7 +373,7 @@ class _GraphState extends State<Graph> {
                 ],
               ),
             );
-          }
+          }*/
         },
       ),
     );

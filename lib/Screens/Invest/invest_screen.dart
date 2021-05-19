@@ -4,6 +4,7 @@ import 'package:capstone/Screens/Invest/graph2.dart';
 import 'package:capstone/Screens/Invest/graph3.dart';
 import 'package:capstone/Screens/Invest/graph4.dart';
 import 'package:capstone/Screens/Invest/graph5.dart';
+import 'package:capstone/Shared/constants.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 
 import 'package:flutter/material.dart';
@@ -52,11 +53,22 @@ class _InvestState extends State<Invest> {
           children: [
 
             SizedBox(height: 100),
-
-            TextFormField(
+            
+            /*Text(
+              'Enter the amount',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                decorationStyle: TextDecorationStyle.solid, 
+              )
+            ),*/
+            textItem("Amount",_amountController, false),
+            SizedBox(height: 15),
+            textItem("Duration",_durationController, false),
+            /*TextFormField(
               controller: _amountController,
               decoration: InputDecoration(
-                hintText: 'Enter Amount',
+                hintText: 'Amount',
                 prefixIcon: Icon(
                   Icons.money_off_csred_outlined,
                   size: 30,
@@ -65,11 +77,11 @@ class _InvestState extends State<Invest> {
                 filled: true,
                 contentPadding: EdgeInsets.all(15),
               ),
-            ),
+            ),*/
 
-            SizedBox(height: 15),
+            
 
-            TextFormField(
+            /*TextFormField(
               controller: _durationController,
               decoration: InputDecoration(
                 hintText: 'Enter Duration',
@@ -81,7 +93,7 @@ class _InvestState extends State<Invest> {
                 filled: true,
                 contentPadding: EdgeInsets.all(15),
               ),
-            ),
+            ),*/
 
             SizedBox(height: 15,),
 
@@ -89,7 +101,7 @@ class _InvestState extends State<Invest> {
               color: Colors.white,
               
               child: DropDownFormField(
-                
+                required: true,
                 errorText: 'Please select one option',
                 contentPadding: const EdgeInsets.fromLTRB(12, 12, 8, 0),
                 titleText: 'Investment Month',
@@ -165,8 +177,7 @@ class _InvestState extends State<Invest> {
            
            SizedBox(height: 50,),
 
-           Center(
-             
+           Center( 
              child: Container(
                width: 80,
                padding: EdgeInsets.symmetric(horizontal: 10),
@@ -258,13 +269,41 @@ class _InvestState extends State<Invest> {
 
   }
 
-
-  void conditions(){
-    int amount = int.parse('_amountController.text');
-    int duration = int.parse('_durationController.text');
-    if(amount == 1000 && duration==2){
-      
-    }
+  Widget textItem(
+    String labeltext, TextEditingController controller, bool obscureText) {
+      return Container(
+      width: MediaQuery.of(context).size.width - 70,
+      height: 55,
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        style: TextStyle(
+          fontSize: 17,
+          color: kPrimaryColorPink,
+        ),
+        decoration: InputDecoration(
+          labelText: labeltext,
+          labelStyle: TextStyle(
+            fontSize: 17,
+            color: kPrimaryColorPurple,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              width: 1.5,
+              color: kPrimaryColorPink,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              width: 1,
+              color: kPrimaryColorPurple,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   

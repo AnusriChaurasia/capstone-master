@@ -9,10 +9,10 @@ class GraphC extends StatefulWidget {
 
 class _GraphCState extends State<GraphC> {
   Map<String, double> dataMap = {
-    "Stock": 5,
-    "BitCoin": 3,
-    "Mutual Funds": 2,
-    "Virtual Gold": 2,
+    "BitCoin": 3.6,
+    "Mutual Funds": 3.0,
+    "Stock": 2.4,
+    "Virtual Gold": 3.0,
   };
 
   List<Color> colorList = [
@@ -65,7 +65,7 @@ class _GraphCState extends State<GraphC> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Investment Options"),
-        backgroundColor: kPrimaryColor,
+        backgroundColor: kPrimaryColorPurple,
       ),
       body: LayoutBuilder(
         // ignore: missing_return

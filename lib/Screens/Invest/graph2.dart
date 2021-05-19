@@ -13,10 +13,10 @@ class GraphB extends StatefulWidget {
 
 class _GraphBState extends State<GraphB> {
   Map<String, double> dataMap = {
-    "Flutter": 5,
-    "React": 3,
-    "Xamarin": 2,
-    "Ionic": 2,
+    "BitCoin": 4.2,
+    "Mutual Funds": 4.2,
+    "Stock": 1.8,
+    "Virtual Gold": 1.8,
   };
   List<Color> colorList = [
     Colors.red,

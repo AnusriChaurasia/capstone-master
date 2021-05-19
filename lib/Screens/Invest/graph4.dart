@@ -10,10 +10,10 @@ class GraphD extends StatefulWidget {
 
 class _GraphDState extends State<GraphD> {
   Map<String, double> dataMap = {
-    "Stock": 5,
-    "BitCoin": 3,
-    "Mutual Funds": 2,
-    "Virtual Gold": 2,
+    "BitCoin": 2.4,
+    "Mutual Funds": 2.4,
+    "Stock": 2.4,
+    "Virtual Gold": 4.5,
   };
 
   List<Color> colorList = [
@@ -66,7 +66,7 @@ class _GraphDState extends State<GraphD> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Investment Options"),
-        backgroundColor: kPrimaryColor,
+        backgroundColor: kPrimaryColorPurple,
       ),
       body: LayoutBuilder(
         // ignore: missing_return

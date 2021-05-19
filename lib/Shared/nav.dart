@@ -1,10 +1,7 @@
-import 'package:capstone/Screens/budget_screen.dart';
-import 'package:capstone/Screens/Home/home_screen.dart';
-import 'package:capstone/Screens/Invest/invest_screen.dart';
-import 'package:capstone/Screens/Learn/learn_screen.dart';
-import 'package:capstone/Screens/Profile/profile_screen.dart';
+import 'package:capstone/Screens/Learn/topics.dart';
+import 'package:capstone/Shared/constants.dart';
+import 'package:capstone/Screens/screens.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
 
 class Nav extends StatefulWidget {
   Nav({Key key}) : super(key: key);
@@ -16,7 +13,7 @@ class Nav extends StatefulWidget {
 class _NavState extends State<Nav> {
   int _selectedIndex = 2;
   List<Widget> _widgetOptions = <Widget>[
-    Learn(),
+    TopicsScreen(),
     Invest(),
     Home(),
     Budget(),
@@ -37,7 +34,8 @@ class _NavState extends State<Nav> {
           'BillMatter',
           style: TextStyle(
             color: kPrimaryColor,
-        ),),
+          ),
+        ),
         elevation: 0,
         backgroundColor: kPrimaryLightColor,
       ),

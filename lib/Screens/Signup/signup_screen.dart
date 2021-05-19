@@ -35,6 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -44,29 +45,34 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              SvgPicture.asset(
+              "assets/icons/chat.svg",
+              height: size.height * 0.30,
+            ),
+              SizedBox(
+                height: 70,
+              ),
+              /*Text(
                 "Sign Up",
                 style: TextStyle(
                   fontSize: 35,
-                  color: Colors.purple[600],
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              /*buttonItem("assets/google.svg", "Continue with Google", 25),
+              
+              buttonItem("assets/google.svg", "Continue with Google", 25),
               SizedBox(
                 height: 15,
               ),
               buttonItem("assets/phone.svg", "Continue with Mobile", 30),
               SizedBox(
                 height: 18,
-              ),*/
+              ),
               Text(
                 "Or",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
+                style: TextStyle(color: kPrimaryColorPurple, fontSize: 18),
+              ),*/
               SizedBox(
                 height: 18,
               ),
@@ -88,7 +94,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Text(
                     "If you alredy have an Account? ",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kPrimaryColorPurple,
                       fontSize: 16,
                     ),
                   ),
@@ -102,7 +108,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Text(
                       "Login",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: kPrimaryColorPurple,
+                        decoration: TextDecoration.underline,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -148,11 +155,12 @@ class _SignUpPageState extends State<SignUpPage> {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(colors: [
+          color: kPrimaryColorPink,
+          /*gradient: LinearGradient(colors: [
             Color(0xfffd746c),
             Color(0xffff9068),
             Color(0xfffd746c)
-          ]),
+          ]),*/
         ),
         child: Center(
           child: circular
@@ -217,26 +225,26 @@ class _SignUpPageState extends State<SignUpPage> {
         obscureText: obscureText,
         style: TextStyle(
           fontSize: 17,
-          color: Colors.white,
+          color: kPrimaryColorPurple,
         ),
         decoration: InputDecoration(
           labelText: labeltext,
           labelStyle: TextStyle(
             fontSize: 17,
-            color: Colors.white,
+            color: kPrimaryColorPurple,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               width: 1.5,
-              color: Colors.amber,
+              color: kPrimaryColorPurple,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               width: 1,
-              color: Colors.grey,
+              color: kPrimaryColorPink,
             ),
           ),
         ),

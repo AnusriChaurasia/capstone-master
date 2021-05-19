@@ -22,11 +22,11 @@ class RoundedInputField extends StatelessWidget {
       child: TextFormField(
         validator: (val) => !isEmail(val) ? "Invalid Email" : null,
         onChanged: onChanged,
-        cursorColor: kPrimaryColor,
+        cursorColor: kPrimaryColorPurple,
         decoration: InputDecoration(
           icon: Icon(
             icon,
-            color: kPrimaryColor,
+            color: kPrimaryColorPurple,
           ),
           hintText: hintText,
           border: InputBorder.none,

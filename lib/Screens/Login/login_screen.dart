@@ -11,6 +11,7 @@ class LoginScreen extends StatelessWidget {
 }*/
 
 import 'package:capstone/Screens/Signup/signup_screen.dart';
+import 'package:capstone/Shared/constants.dart';
 import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,19 +31,29 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _pwdController = TextEditingController();
   bool circular = false;
+  bool pressAttention = false;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.black,
+          color: kPrimaryLightColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+
+              SvgPicture.asset(
+              "assets/icons/chat.svg",
+              height: size.height * 0.30,
+            ),
+            SizedBox(
+                height: 70,
+              ),
+              /*Text(
                 "Sign In",
                 style: TextStyle(
                   fontSize: 35,
@@ -53,7 +64,7 @@ class _SignInPageState extends State<SignInPage> {
               SizedBox(
                 height: 20,
               ),
-              /*buttonItem("assets/google.svg", "Continue with Google", 25),
+              buttonItem("assets/google.svg", "Continue with Google", 25),
               SizedBox(
                 height: 15,
               ),
@@ -63,7 +74,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               Text(
                 "Or",
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: kPrimaryColorPurple, fontSize: 18),
               ),*/
               SizedBox(
                 height: 18,
@@ -86,7 +97,7 @@ class _SignInPageState extends State<SignInPage> {
                   Text(
                     "If you don't have an Account? ",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kPrimaryColorPurple,
                       fontSize: 16,
                     ),
                   ),
@@ -100,9 +111,10 @@ class _SignInPageState extends State<SignInPage> {
                     child: Text(
                       "SignUp",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: kPrimaryColorPurple,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
                   ),
@@ -127,6 +139,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Widget colorButton() {
+     
     return InkWell(
       onTap: () async {
         try {
@@ -136,6 +149,7 @@ class _SignInPageState extends State<SignInPage> {
           print(userCredential.user.email);
           setState(() {
             circular = false;
+            
           });
           Navigator.pushAndRemoveUntil(
               context,
@@ -146,6 +160,7 @@ class _SignInPageState extends State<SignInPage> {
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
           setState(() {
             circular = false;
+            
           });
         }
       },
@@ -154,11 +169,12 @@ class _SignInPageState extends State<SignInPage> {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(colors: [
+          color: kPrimaryColorPink,
+          /*gradient: LinearGradient(colors: [
             Color(0xfffd746c),
             Color(0xffff9068),
             Color(0xfffd746c)
-          ]),
+          ])*/
         ),
         child: Center(
           child: circular
@@ -214,7 +230,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Widget textItem(
-      String labeltext, TextEditingController controller, bool obscureText) {
+    String labeltext, TextEditingController controller, bool obscureText) {
     return Container(
       width: MediaQuery.of(context).size.width - 70,
       height: 55,
@@ -223,26 +239,26 @@ class _SignInPageState extends State<SignInPage> {
         obscureText: obscureText,
         style: TextStyle(
           fontSize: 17,
-          color: Colors.white,
+          color: kPrimaryColorPurple,
         ),
         decoration: InputDecoration(
           labelText: labeltext,
           labelStyle: TextStyle(
             fontSize: 17,
-            color: Colors.white,
+            color: kPrimaryColorPurple,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               width: 1.5,
-              color: Colors.amber,
+              color: kPrimaryColorPurple,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               width: 1,
-              color: Colors.grey,
+              color: kPrimaryColorPink,
             ),
           ),
         ),

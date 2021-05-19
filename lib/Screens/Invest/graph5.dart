@@ -11,10 +11,10 @@ class GraphE extends StatefulWidget {
 class _GraphEState extends State<GraphE> {
 
   Map<String, double> dataMap = {
-    "Stock": 5,
-    "BitCoin": 3,
-    "Mutual Funds": 2,
-    "Virtual Gold": 2,
+    "BitCoin": 0.6,
+    "Mutual Funds": 1.8,
+    "Stock": 3.6,
+    "Virtual Gold": 6.3,
   };
 
   List<Color> colorList = [
@@ -67,7 +67,7 @@ class _GraphEState extends State<GraphE> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Investment Options"),
-        backgroundColor: kPrimaryColor,
+        backgroundColor: kPrimaryColorPurple,
       ),
       body: LayoutBuilder(
         // ignore: missing_return

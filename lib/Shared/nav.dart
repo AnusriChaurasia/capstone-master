@@ -33,9 +33,14 @@ class _NavState extends State<Nav> {
         title: Text(
           'BillMatter',
           style: TextStyle(
+<<<<<<< HEAD
             color: kPrimaryColor,
           ),
         ),
+=======
+            color: kPrimaryColorPink,
+        ),),
+>>>>>>> e2e79fcd3355864c4645c8565b547fa8765179f6
         elevation: 0,
         backgroundColor: kPrimaryLightColor,
       ),

@@ -1,5 +1,4 @@
 //// Embedded Maps
-
 class Option {
   String value;
   String detail;
@@ -26,7 +25,6 @@ class Question {
 }
 
 ///// Database Collections
-
 class Quiz {
   String id;
   String title;
@@ -43,7 +41,7 @@ class Quiz {
       this.id,
       this.topic});
 
-  factory Quiz.fromMap(Map data) {
+  factory Quiz.fromMap(Map<dynamic, dynamic> data) {
     return Quiz(
         id: data['id'] ?? '',
         title: data['title'] ?? '',

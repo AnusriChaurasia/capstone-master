@@ -11,6 +11,7 @@
 // }*/
 
 import 'package:capstone/Screens/Signup/signup_screen.dart';
+import 'package:capstone/Services/auth.dart';
 import 'package:capstone/Shared/constants.dart';
 import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:capstone/Services/service.dart';
 
 //import 'package:capstone/home_screen.dart';
 
@@ -40,7 +40,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   void initState() {
     super.initState();
-    // if ( auth.getUser != null) {
+    // if (auth.getUser != null) {
     //   Navigator.pushReplacementNamed(context, '/topics');
     // }
   }
@@ -142,12 +142,7 @@ class _SignInPageState extends State<SignInPage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),*/
-              LoginButton(
-              text: 'LOGIN WITH GOOGLE',
-              icon: FontAwesomeIcons.google,
-              color: Colors.black45,
-              loginMethod: auth.googleSignIn,
-            ),
+
               LoginButton(
                   text: 'Continue as Guest', loginMethod: auth.anonLogin)
             ],
@@ -296,7 +291,7 @@ class LoginButton extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       child: FlatButton.icon(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(20),
         icon: Icon(icon, color: Colors.white),
         color: color,
         onPressed: () async {

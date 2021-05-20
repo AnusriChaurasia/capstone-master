@@ -1,6 +1,9 @@
-import 'package:capstone/Services/service.dart';
+import 'package:capstone/Services/db.dart';
+import 'package:capstone/Services/globals.dart';
+import 'package:capstone/Services/models.dart';
+import 'package:capstone/Shared/loader.dart';
+import 'package:capstone/Shared/progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/Shared/shared.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
@@ -45,8 +48,11 @@ class QuizScreen extends StatelessWidget {
         future: Document<Quiz>(path: 'quizzes/$quizId').getData(),
         builder: (BuildContext context, AsyncSnapshot snap) {
           var state = Provider.of<QuizState>(context); // k
-
+          print('trying to build quiz');
+          print(snap.hasData);
+          print('data for quiz - ' + snap.toString());
           if (!snap.hasData || snap.hasError) {
+            print('I did not recieve any quiz :(');
             return LoadingScreen();
           } else {
             Quiz quiz = snap.data;
@@ -90,7 +96,7 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var state = Provider.of<QuizState>(context);
-
+    print('On the start page');
     return Container(
       padding: EdgeInsets.all(20),
       child: Column(
@@ -172,7 +178,7 @@ class QuestionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var state = Provider.of<QuizState>(context);
-
+    print('Fetching the quistion page');
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [

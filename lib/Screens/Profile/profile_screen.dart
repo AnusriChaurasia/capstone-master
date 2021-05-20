@@ -1,7 +1,8 @@
+import 'package:capstone/Services/auth.dart';
+import 'package:capstone/Services/models.dart';
+import 'package:capstone/Shared/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:capstone/Services/service.dart';
-import 'package:capstone/Shared/shared.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {

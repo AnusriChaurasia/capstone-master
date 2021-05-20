@@ -1,5 +1,5 @@
+import 'package:capstone/Services/models.dart';
 import 'package:flutter/material.dart';
-import '../services/service.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 

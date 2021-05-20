@@ -1,7 +1,9 @@
 import 'package:capstone/Screens/Learn/quiz.dart';
+import 'package:capstone/Services/globals.dart';
+import 'package:capstone/Services/models.dart';
+import 'package:capstone/Shared/loader.dart';
+import 'package:capstone/Shared/progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/services/service.dart';
-import 'package:capstone/shared/shared.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopicsScreen extends StatelessWidget {

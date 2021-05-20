@@ -54,9 +54,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Nunito',
           bottomAppBarTheme: BottomAppBarTheme(
-            color: Colors.black87,
+            color: Colors.indigo,
           ),
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
           textTheme: TextTheme(
             body1: TextStyle(fontSize: 18),
             body2: TextStyle(fontSize: 16),

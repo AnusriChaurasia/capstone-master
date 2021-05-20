@@ -1,4 +1,6 @@
 import 'package:capstone/Screens/Learn/quiz.dart';
+import 'package:capstone/Shared/loader.dart';
+import 'package:capstone/Shared/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:capstone/services/service.dart';
 import 'package:capstone/shared/shared.dart';
@@ -155,12 +157,12 @@ class QuizList extends StatelessWidget {
             child: ListTile(
               title: Text(
                 quiz.title,
-                style: Theme.of(context).textTheme.title,
+                style: Theme.of(context).textTheme.headline6,
               ),
               subtitle: Text(
                 quiz.description,
                 overflow: TextOverflow.fade,
-                style: Theme.of(context).textTheme.subhead,
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               leading: QuizBadge(topic: topic, quizId: quiz.id),
             ),

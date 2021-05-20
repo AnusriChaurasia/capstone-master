@@ -1,6 +1,8 @@
 import 'package:capstone/Services/service.dart';
+import 'package:capstone/Shared/loader.dart';
+import 'package:capstone/Shared/progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/Shared/shared.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
@@ -96,17 +98,17 @@ class StartPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(quiz.title, style: Theme.of(context).textTheme.headline),
+          Text(quiz.title, style: Theme.of(context).textTheme.headline5),
           Divider(),
           Expanded(child: Text(quiz.description)),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton.icon(
+              TextButton.icon(
                 onPressed: state.nextPage,
                 label: Text('Start Quiz!'),
-                icon: Icon(Icons.poll),
-                color: Colors.green,
+                icon: Icon(Icons.poll, color: Colors.green),
+                
               )
             ],
           )
@@ -134,6 +136,7 @@ class CongratsPage extends StatelessWidget {
           Divider(),
           Image.asset('assets/congrats.gif'),
           Divider(),
+          // ignore: deprecated_member_use
           FlatButton.icon(
             color: Colors.green,
             icon: Icon(FontAwesomeIcons.check),
@@ -211,7 +214,7 @@ class QuestionPage extends StatelessWidget {
                             margin: EdgeInsets.only(left: 16),
                             child: Text(
                               opt.value,
-                              style: Theme.of(context).textTheme.body2,
+                              style: Theme.of(context).textTheme.bodyText1,
                             ),
                           ),
                         )
@@ -246,6 +249,7 @@ class QuestionPage extends StatelessWidget {
                 opt.detail,
                 style: TextStyle(fontSize: 18, color: Colors.white54),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 color: correct ? Colors.green : Colors.red,
                 child: Text(

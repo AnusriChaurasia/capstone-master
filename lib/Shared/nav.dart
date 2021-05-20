@@ -26,22 +26,7 @@ class _NavState extends State<Nav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         title: Text('BillMatter', style: TextStyle(color: kPrimaryColorPink,),),
-=======
-        title: Text(
-          'BillMatter',
-          style: TextStyle(
-<<<<<<< HEAD
-            color: kPrimaryColor,
-          ),
-        ),
-=======
-            color: kPrimaryColorPink,
-        ),),
->>>>>>> e2e79fcd3355864c4645c8565b547fa8765179f6
->>>>>>> b7e9a5b3c423387ff4c723e6065a0e8d1de380e7
-        elevation: 0,
         backgroundColor: kPrimaryLightColor,
       ),
       body: Center(

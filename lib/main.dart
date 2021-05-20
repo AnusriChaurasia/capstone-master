@@ -1,95 +1,72 @@
-//import 'package:capstone/Screens/Welcome/welcome_screen.dart';
-
-import 'package:capstone/Screens/Home/home_screen.dart';
-// ignore: unused_import
-import 'package:capstone/Screens/Login/login_screen.dart';
-import 'package:capstone/Screens/Profile/profile_screen.dart';
-// ignore: unused_import
-import 'package:capstone/Screens/Welcome/welcome_screen.dart';
-import 'package:capstone/Screens/budget_screen.dart';
-import 'package:capstone/Shared/nav.dart';
-// ignore: unused_import
-import 'package:capstone/shared/nav.dart' as nav;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
+import 'Screens/Home/home_screen.dart';
 import 'Screens/Invest/invest_screen.dart';
 import 'Screens/Learn/learn_screen.dart';
+import 'Screens/Learn/topics.dart';
+import 'Screens/Login/login_screen.dart';
+import 'Screens/Profile/profile_screen.dart';
+import 'Screens/budget_screen.dart';
+import 'Services/auth.dart';
+import 'Services/globals.dart';
+import 'Services/models.dart';
 
-//import 'package:capstone/Screens/Welcome/welcome_screen.dart';
-// ignore: duplicate_import
-import 'package:firebase_core/firebase_core.dart';
-// ignore: duplicate_import
-import 'package:flutter/material.dart';
-
-//import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
-/*class MyApp extends StatefulWidget {
-MyApp({Key key}) : super(key : key);
-@override
-_MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
-
-void signup() async{
-try{
-  await firebaseAuth.createUserWithEmailAndPassword(email: "anusrichaurasia@gmail.com", password: "anusri234");
-}
-catch(e){
-  print(e);
-}
-}
-@override
-Widget build(BuildContext context) {
-return MaterialApp(
-  home: Scaffold(
-    appBar: AppBar(
-      title: Text("firebase"),
-    ),
-    body: Center(
-      child: RaisedButton(
-        onPressed: () {
-          signup();
-        },
-        child: Text("Signup"),
-      )
-    ),
-  ),
-);
-}
-}*/
-
 class MyApp extends StatelessWidget {
-// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Capstone Project',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return MultiProvider(
+      providers: [
+        StreamProvider<Report>.value(value: Global.reportRef.documentStream),
+        StreamProvider<User>.value(value: AuthService().user),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+
+        // Firebase Analytics
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+        ],
+
+        // Named Routes
+        routes: {
+          '/': (context) => SignInPage(),
+          '/profile': (context) => ProfileScreen(),
+          '/learn': (context) => Learn(),
+          '/invest': (context) => Invest(),
+          '/home': (context) => Home(),
+          '/budget': (context) => Budget(),
+          '/topics': (context) => TopicsScreen(),
+        },
+
+        // Theme
+        theme: ThemeData(
+          fontFamily: 'Nunito',
+          bottomAppBarTheme: BottomAppBarTheme(
+            color: Colors.black87,
+          ),
+          brightness: Brightness.dark,
+          textTheme: TextTheme(
+            body1: TextStyle(fontSize: 18),
+            body2: TextStyle(fontSize: 16),
+            button: TextStyle(letterSpacing: 1.5, fontWeight: FontWeight.bold),
+            headline: TextStyle(fontWeight: FontWeight.bold),
+            subhead: TextStyle(color: Colors.grey),
+          ),
+          buttonTheme: ButtonThemeData(),
+        ),
       ),
-
-      // Named Routes
-      routes: {
-        //'/': (context) => SignInPage(),
-        '/profile': (context) => Profile(),
-        '/learn': (context) => Learn(),
-        '/invest': (context) => Invest(),
-        '/home': (context) => Home(),
-        '/budget': (context) => Budget(),
-      },
-
-      home: WelcomeScreen(),
     );
   }
 }

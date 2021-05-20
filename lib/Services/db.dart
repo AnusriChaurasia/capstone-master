@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 import './globals.dart';
 
 class Document<T> {
-  final _db = FirebaseFirestore.instance;
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
   final String path;
   DocumentReference ref;
 
@@ -22,12 +22,12 @@ class Document<T> {
   }
 
   Future<void> upsert(Map data) {
-    return ref.set(Map<String, dynamic>.from(data)); //, mergeFields: true);
+    return ref.set(Map<String, dynamic>.from(data), SetOptions(merge: true));
   }
 }
 
 class Collection<T> {
-  final _db = FirebaseFirestore.instance;
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
   final String path;
   CollectionReference ref;
 
@@ -36,16 +36,14 @@ class Collection<T> {
   }
 
   Future<List<T>> getData() async {
-    var snapshots = await ref.get();
-    return snapshots.docs
-        .map((doc) => Global.models[T](doc.data) as T)
-        .toList();
+    var snapshots = await ref.get().then((snapshot) =>
+        snapshot.docs.map((doc) => Global.models[T](doc.data()) as T).toList());
+    return snapshots;
   }
 
   Stream<List<T>> streamData() {
-    return ref
-        .snapshots()
-        .map((list) => list.docs.map((doc) => Global.models[T](doc.data) as T));
+    return ref.snapshots().map(
+        (list) => list.docs.map((doc) => Global.models[T](doc.data()) as T));
   }
 }
 

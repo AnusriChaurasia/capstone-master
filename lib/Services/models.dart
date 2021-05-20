@@ -1,11 +1,12 @@
 //// Embedded Maps
+
 class Option {
   String value;
   String detail;
   bool correct;
 
   Option({this.correct, this.value, this.detail});
-  Option.fromMap(Map<dynamic, dynamic> data) {
+  Option.fromMap(Map data) {
     value = data['value'];
     detail = data['detail'] ?? '';
     correct = data['correct'];
@@ -25,6 +26,7 @@ class Question {
 }
 
 ///// Database Collections
+
 class Quiz {
   String id;
   String title;
@@ -41,7 +43,7 @@ class Quiz {
       this.id,
       this.topic});
 
-  factory Quiz.fromMap(Map<String, dynamic> data) {
+  factory Quiz.fromMap(Map data) {
     return Quiz(
         id: data['id'] ?? '',
         title: data['title'] ?? '',
@@ -63,8 +65,7 @@ class Topic {
 
   Topic({this.id, this.title, this.description, this.img, this.quizzes});
 
-  factory Topic.fromMap(Map<dynamic, dynamic> data) {
-    print('data recieved in topic global is' + data.toString());
+  factory Topic.fromMap(Map data) {
     return Topic(
       id: data['id'] ?? '',
       title: data['title'] ?? '',
@@ -84,7 +85,7 @@ class Report {
 
   Report({this.uid, this.topics, this.total});
 
-  factory Report.fromMap(Map<dynamic, dynamic> data) {
+  factory Report.fromMap(Map data) {
     return Report(
       uid: data['uid'],
       total: data['total'] ?? 0,

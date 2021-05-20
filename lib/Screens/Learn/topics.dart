@@ -16,17 +16,17 @@ class TopicsScreen extends StatelessWidget {
         if (snap.hasData) {
           List<Topic> topics = snap.data;
           return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
-              title: Text('Topics'),
-              actions: [
-                IconButton(
-                  icon: Icon(FontAwesomeIcons.userCircle,
-                      color: Colors.pink[200]),
-                  onPressed: () => Navigator.pushNamed(context, '/profile'),
-                )
-              ],
-            ),
+            // appBar: AppBar(
+            //   backgroundColor: Colors.deepPurple,
+            //   title: Text('Topics'),
+            //   actions: [
+            //     IconButton(
+            //       icon: Icon(FontAwesomeIcons.userCircle,
+            //           color: Colors.pink[200]),
+            //       onPressed: () => Navigator.pushNamed(context, '/profile'),
+            //     )
+            //   ],
+            // ),
             drawer: TopicDrawer(topics: snap.data),
             body: GridView.count(
               primary: false,
@@ -35,7 +35,7 @@ class TopicsScreen extends StatelessWidget {
               crossAxisCount: 2,
               children: topics.map((topic) => TopicItem(topic: topic)).toList(),
             ),
-            bottomNavigationBar: Nav(),
+            //bottomNavigationBar: Nav(),
           );
         } else {
           print('nothing was returned');
@@ -88,10 +88,10 @@ class TopicItem extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Text(topic.description)
+                    Text(topic.description)
                   ],
                 ),
-                // )
+                //),
                 TopicProgress(topic: topic),
               ],
             ),

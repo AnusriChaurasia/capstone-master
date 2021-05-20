@@ -10,7 +10,6 @@ class SignUpScreen extends StatelessWidget {
   }
 }*/
 
-
 //import 'package:capstone/home_screen.dart';
 import 'package:capstone/Screens/Login/login_screen.dart';
 import 'package:capstone/Shared/constants.dart';
@@ -18,7 +17,6 @@ import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
@@ -46,9 +44,9 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.30,
-            ),
+                "assets/icons/chat.svg",
+                height: size.height * 0.30,
+              ),
               SizedBox(
                 height: 70,
               ),
@@ -60,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              
+
               buttonItem("assets/google.svg", "Continue with Google", 25),
               SizedBox(
                 height: 15,
@@ -138,10 +136,8 @@ class _SignUpPageState extends State<SignUpPage> {
           setState(() {
             circular = false;
           });
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (builder) => Nav()),
-              (route) => false);
+          Navigator.pushAndRemoveUntil(context,
+              MaterialPageRoute(builder: (builder) => Nav()), (route) => false);
         } catch (e) {
           final snackbar = SnackBar(content: Text(e.toString()));
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
@@ -252,4 +248,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-

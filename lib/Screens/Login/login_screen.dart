@@ -1,14 +1,14 @@
-/*import 'package:flutter/material.dart';
-import 'package:capstone/Screens/Login/components/body.dart';
+// /*import 'package:flutter/material.dart';
+// import 'package:capstone/Screens/Login/components/body.dart';
 
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Body(),
-    );
-  }
-}*/
+// class LoginScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Body(),
+//     );
+//   }
+// }*/
 
 import 'package:capstone/Screens/Signup/signup_screen.dart';
 import 'package:capstone/Shared/constants.dart';
@@ -16,8 +16,11 @@ import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-//import 'package:capstone/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:capstone/Services/service.dart';
 
+//import 'package:capstone/home_screen.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({Key key}) : super(key: key);
@@ -32,6 +35,15 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController _pwdController = TextEditingController();
   bool circular = false;
   bool pressAttention = false;
+  AuthService auth = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    // if ( auth.getUser != null) {
+    //   Navigator.pushReplacementNamed(context, '/topics');
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +57,11 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.30,
-            ),
-            SizedBox(
+                "assets/icons/chat.svg",
+                height: size.height * 0.30,
+              ),
+              SizedBox(
                 height: 70,
               ),
               /*Text(
@@ -131,6 +142,14 @@ class _SignInPageState extends State<SignInPage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),*/
+              LoginButton(
+              text: 'LOGIN WITH GOOGLE',
+              icon: FontAwesomeIcons.google,
+              color: Colors.black45,
+              loginMethod: auth.googleSignIn,
+            ),
+              LoginButton(
+                  text: 'Continue as Guest', loginMethod: auth.anonLogin)
             ],
           ),
         ),
@@ -139,7 +158,6 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Widget colorButton() {
-     
     return InkWell(
       onTap: () async {
         try {
@@ -149,18 +167,14 @@ class _SignInPageState extends State<SignInPage> {
           print(userCredential.user.email);
           setState(() {
             circular = false;
-            
           });
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (builder) => Nav()),
-              (route) => false);
+          Navigator.pushAndRemoveUntil(context,
+              MaterialPageRoute(builder: (builder) => Nav()), (route) => false);
         } catch (e) {
           final snackbar = SnackBar(content: Text(e.toString()));
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
           setState(() {
             circular = false;
-            
           });
         }
       },
@@ -230,7 +244,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Widget textItem(
-    String labeltext, TextEditingController controller, bool obscureText) {
+      String labeltext, TextEditingController controller, bool obscureText) {
     return Container(
       width: MediaQuery.of(context).size.width - 70,
       height: 55,
@@ -261,6 +275,41 @@ class _SignInPageState extends State<SignInPage> {
               color: kPrimaryColorPink,
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginButton extends StatelessWidget {
+  final Color color;
+  final IconData icon;
+  final String text;
+  final Function loginMethod;
+
+  const LoginButton(
+      {Key key, this.text, this.icon, this.color, this.loginMethod})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      child: FlatButton.icon(
+        padding: EdgeInsets.all(30),
+        icon: Icon(icon, color: Colors.white),
+        color: color,
+        onPressed: () async {
+          var user = await loginMethod();
+          if (user != null) {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (builder) => Nav()),
+                (route) => false);
+          }
+        },
+        label: Expanded(
+          child: Text('$text', textAlign: TextAlign.center),
         ),
       ),
     );

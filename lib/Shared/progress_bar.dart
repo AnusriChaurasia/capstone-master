@@ -93,7 +93,7 @@ class TopicProgress extends StatelessWidget {
         _progressCount(report, topic),
         Expanded(
           child: AnimatedProgressbar(
-              value: _calculateProgress(topic, report), height: 8),
+              value: _calculateProgress(topic, report), height: 4),
         ),
       ],
     );

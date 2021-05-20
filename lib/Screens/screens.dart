@@ -4,3 +4,5 @@ export 'Learn/learn_screen.dart';
 export 'Invest/invest_screen.dart';
 export 'Signup/signup_screen.dart';
 export 'Welcome/welcome_screen.dart';
+export 'Home/home_screen.dart';
+export 'budget_screen.dart';

@@ -1,10 +1,7 @@
-import 'package:capstone/Screens/budget_screen.dart';
-import 'package:capstone/Screens/Home/home_screen.dart';
-import 'package:capstone/Screens/Invest/invest_screen.dart';
-import 'package:capstone/Screens/Learn/learn_screen.dart';
-import 'package:capstone/Screens/Profile/profile_screen.dart';
+import 'package:capstone/Screens/Learn/topics.dart';
+import 'package:capstone/Shared/constants.dart';
+import 'package:capstone/Screens/screens.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
 
 class Nav extends StatefulWidget {
   Nav({Key key}) : super(key: key);
@@ -16,7 +13,7 @@ class Nav extends StatefulWidget {
 class _NavState extends State<Nav> {
   int _selectedIndex = 2;
   List<Widget> _widgetOptions = <Widget>[
-    Learn(),
+    TopicsScreen(),
     Invest(),
     Home(),
     Budget(),
@@ -29,7 +26,21 @@ class _NavState extends State<Nav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
         title: Text('BillMatter', style: TextStyle(color: kPrimaryColorPink,),),
+=======
+        title: Text(
+          'BillMatter',
+          style: TextStyle(
+<<<<<<< HEAD
+            color: kPrimaryColor,
+          ),
+        ),
+=======
+            color: kPrimaryColorPink,
+        ),),
+>>>>>>> e2e79fcd3355864c4645c8565b547fa8765179f6
+>>>>>>> b7e9a5b3c423387ff4c723e6065a0e8d1de380e7
         elevation: 0,
         backgroundColor: kPrimaryLightColor,
       ),

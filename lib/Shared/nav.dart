@@ -22,22 +22,14 @@ class _NavState extends State<Nav> {
     Budget(),
     Profile(),
   ];
-
   void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    setState(() {_selectedIndex = index;});
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'BillMatter',
-          style: TextStyle(
-            color: kPrimaryColorPink,
-        ),),
+        title: Text('BillMatter', style: TextStyle(color: kPrimaryColorPink,),),
         elevation: 0,
         backgroundColor: kPrimaryLightColor,
       ),
@@ -46,28 +38,11 @@ class _NavState extends State<Nav> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.lightbulb_outline,
-            ),
-            label: 'Learn',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart),
-            label: 'Invest',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pie_chart_outlined),
-            label: 'Budget',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.lightbulb_outline,), label: 'Learn',),
+          BottomNavigationBarItem(icon: Icon(Icons.show_chart), label: 'Invest',),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
+          BottomNavigationBarItem(icon: Icon(Icons.pie_chart_outlined), label: 'Budget',),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profile',),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTap,

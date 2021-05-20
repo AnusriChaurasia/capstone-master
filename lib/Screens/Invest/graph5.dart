@@ -9,21 +9,18 @@ class GraphE extends StatefulWidget {
 }
 
 class _GraphEState extends State<GraphE> {
-
   Map<String, double> dataMap = {
     "BitCoin": 0.6,
     "Mutual Funds": 1.8,
     "Stock": 3.6,
     "Virtual Gold": 6.3,
   };
-
   List<Color> colorList = [
     Colors.red,
     Colors.green,
     Colors.blue,
     Colors.yellow,
   ];
-
   bool _showCenterText = true;
   bool _showLegendsInRow = false;
   bool _showLegends = true;
@@ -39,8 +36,7 @@ class _GraphEState extends State<GraphE> {
       animationDuration: Duration(milliseconds: 800),
       chartLegendSpacing: 70,
       chartRadius: MediaQuery.of(context).size.width / 1.5,
-      colorList: colorList,
-      
+      colorList: colorList, 
       initialAngleInDegree: 0,
       chartType: ChartType.ring,
       centerText: _showCenterText ? "INVEST" : null,
@@ -50,9 +46,7 @@ class _GraphEState extends State<GraphE> {
         legendPosition: LegendPosition.bottom,
         showLegends: _showLegends,
         legendShape: BoxShape.circle,
-        legendTextStyle: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
+        legendTextStyle: TextStyle(fontWeight: FontWeight.bold,),
       ),
       chartValuesOptions: ChartValuesOptions(
         showChartValueBackground: false,
@@ -75,26 +69,13 @@ class _GraphEState extends State<GraphE> {
           if (constraints.maxWidth >= 600) {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(
-                  flex: 3,
-                  fit: FlexFit.tight,
-                  child: chart,
-                ),
-              ],
+              children: [Flexible(flex: 3,fit: FlexFit.tight,child: chart,),],
             );
           } 
           else {
             return SingleChildScrollView(
               child: Column(
-                children: [
-                  Container(
-                    child: chart,
-                    margin: EdgeInsets.symmetric(
-                      vertical: 80,
-                    ),
-                  ),
-                ],
+                children: [Container(child: chart,margin: EdgeInsets.symmetric(vertical: 80,),),],
               ),
             );
           }

@@ -50,6 +50,7 @@ class Collection<T> {
 }
 
 class UserData<T> {
+  // ignore: unused_field
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final String collection;

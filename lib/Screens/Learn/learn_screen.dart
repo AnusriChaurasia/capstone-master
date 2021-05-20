@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Learn extends StatefulWidget {
   Learn({Key key}) : super(key: key);
-
   @override
   _LearnState createState() => _LearnState();
 }
@@ -24,10 +23,7 @@ class _LearnState extends State<Learn> {
             height: size.height * .45,
             decoration: BoxDecoration(
               color: Color(0xFFF5CEB8),
-              image: DecorationImage(
-                alignment: Alignment.centerLeft,
-                image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
-              ),
+              image: DecorationImage(alignment: Alignment.centerLeft,image: AssetImage("assets/images/undraw_pilates_gpdb.png"),),
             ),
           ),
           SafeArea(
@@ -42,20 +38,12 @@ class _LearnState extends State<Learn> {
                       alignment: Alignment.center,
                       height: 52,
                       width: 52,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF2BEA1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset("assets/icons/menu.svg"),
-                    ),
+                      decoration: BoxDecoration(color: Color(0xFFF2BEA1),shape: BoxShape.circle,),
+                      child: SvgPicture.asset("assets/icons/menu.svg"),),
                   ),
                   Text(
                     "Hey Learner!! \n",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3
-                        .copyWith(fontWeight: FontWeight.w900),
-                  ),
+                    style: Theme.of(context).textTheme.headline3.copyWith(fontWeight: FontWeight.w900),),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
@@ -67,48 +55,28 @@ class _LearnState extends State<Learn> {
                           title: "Budgeting ",
                           svgSrc: "assets/icons/Meditation.svg",
                           press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
-                              }),
-                            );
+                            Navigator.push(context,MaterialPageRoute(builder: (context) {return DetailsScreen();}),);
                           },
                         ),
                         CategoryCard(
                           title: "Saving",
                           svgSrc: "assets/icons/Meditation.svg",
                           press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
-                              }),
-                            );
+                            Navigator.push(context,MaterialPageRoute(builder: (context) {return DetailsScreen();}),);
                           },
                         ),
                         CategoryCard(
                           title: "Financial Institution",
                           svgSrc: "assets/icons/Meditation.svg",
                           press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
-                              }),
-                            );
+                            Navigator.push(context,MaterialPageRoute(builder: (context) {return DetailsScreen();}),);
                           },
                         ),
                         CategoryCard(
                           title: "Credit",
                           svgSrc: "assets/icons/Meditation.svg",
                           press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
-                              }),
-                            );
+                            Navigator.push(context,MaterialPageRoute(builder: (context) {return DetailsScreen();}),);
                           },
                         ),
                         CategoryCard(

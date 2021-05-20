@@ -16,43 +16,19 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "WELCOME TO BILLMATTER",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
+            Text("WELCOME TO BILLMATTER",style: TextStyle(fontWeight: FontWeight.bold),),
             SizedBox(height: size.height * 0.05),
-            SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
-            ),
+            SvgPicture.asset("assets/icons/chat.svg",height: size.height * 0.45,),
             SizedBox(height: size.height * 0.05),
             RoundedButton(
               text: "LOGIN",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignInPage();
-                    },
-                  ),
-                );
-              },
+              press: () {Navigator.push(context,MaterialPageRoute(builder: (context) {return SignInPage();},),);},
             ),
             RoundedButton(
               text: "SIGN UP",
               color: kPrimaryLightColor,
               textColor: Colors.black,
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpPage();
-                    },
-                  ),
-                );
-              },
+              press: () {Navigator.push(context,MaterialPageRoute(builder: (context) {return SignUpPage();},),);},
             ),
           ],
         ),

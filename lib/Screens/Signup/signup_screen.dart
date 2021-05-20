@@ -1,17 +1,3 @@
-/*import 'package:flutter/material.dart';
-import 'package:capstone/Screens/Signup/components/body.dart';
-
-class SignUpScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Body(),
-    );
-  }
-}*/
-
-
-//import 'package:capstone/home_screen.dart';
 import 'package:capstone/Screens/Login/login_screen.dart';
 import 'package:capstone/Shared/constants.dart';
 import 'package:capstone/Shared/nav.dart';
@@ -77,42 +63,27 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 18,
               ),
               textItem("Email....", _emailController, false),
-              SizedBox(
-                height: 15,
-              ),
+              SizedBox(height: 15,),
               textItem("Password...", _pwdController, true),
-              SizedBox(
-                height: 40,
-              ),
+              SizedBox(height: 40),
               colorButton(),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "If you alredy have an Account? ",
-                    style: TextStyle(
-                      color: kPrimaryColorPurple,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: kPrimaryColorPurple,fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (builder) => SignInPage()),
+                      Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (builder) => SignInPage()),
                           (route) => false);
                     },
                     child: Text(
                       "Login",
-                      style: TextStyle(
-                        color: kPrimaryColorPurple,
-                        decoration: TextDecoration.underline,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(color: kPrimaryColorPurple,decoration: TextDecoration.underline,
+                      fontSize: 16,fontWeight: FontWeight.w600,),
                     ),
                   ),
                 ],

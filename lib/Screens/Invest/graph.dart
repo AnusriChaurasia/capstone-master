@@ -31,10 +31,7 @@ class _GraphState extends State<Graph> {
   //ChartType _chartType = ChartType.disc;
   bool _showCenterText = true;
   //double _ringStrokeWidth = 32;
-  //double _chartLegendSpacing = 50;
-
-  bool _showLegendsInRow = false;
-  bool _showLegends = true;  
+  //double _chartLegendSpacing = 50;   
   //LegendShape _legendShape = LegendShape.Circle;
   //LegendPosition _legendPosition = LegendPosition.right;
 
@@ -57,9 +54,9 @@ class _GraphState extends State<Graph> {
       centerText: _showCenterText ? "INVEST" : null,
       ringStrokeWidth:50,
       legendOptions: LegendOptions(
-        showLegendsInRow: _showLegendsInRow,
+        showLegendsInRow: false,
         legendPosition: LegendPosition.bottom,
-        showLegends: _showLegends,
+        showLegends: true,
         /*legendShape: _legendShape == LegendShape.Circle
             ? BoxShape.circle
             : BoxShape.rectangle,*/
@@ -324,19 +321,11 @@ class _GraphState extends State<Graph> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          color:Colors.black,
+        ),
         title: Text("Investment Options"),
         backgroundColor: kPrimaryColorPink,
-        /*actions: [
-          
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                key = key + 1;
-              });
-            },
-            child: Text("Reload".toUpperCase()),
-          ),
-        ],*/
 
       ),
       body: LayoutBuilder(
@@ -350,10 +339,6 @@ class _GraphState extends State<Graph> {
                   fit: FlexFit.tight,
                   child: chart,
                 ),
-                /*Flexible(
-                  flex: 1,
-                  child: settings,
-                )*/
               ],
             );
           /*if (constraints.maxWidth >= 600) {

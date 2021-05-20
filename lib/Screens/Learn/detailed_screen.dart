@@ -46,7 +46,7 @@ class DetailsScreen extends StatelessWidget {
                     SizedBox(
                       width: size.width * .6, // it just take 60% of total width
                       child: Text(
-                        "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                        "Live happier and healthier by learning the fundamentals of money and budgeting",
                       ),
                     ),
                     // SizedBox(

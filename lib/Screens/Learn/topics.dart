@@ -90,10 +90,10 @@ class TopicItem extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(topic.description)
+                    // Text(topic.description)
                   ],
                 ),
-                //),
+                // )
                 TopicProgress(topic: topic),
               ],
             ),

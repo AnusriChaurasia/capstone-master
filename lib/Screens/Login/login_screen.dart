@@ -17,7 +17,6 @@ import 'package:capstone/Shared/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //import 'package:capstone/home_screen.dart';
@@ -87,21 +86,21 @@ class _SignInPageState extends State<SignInPage> {
                 "Or",
                 style: TextStyle(color: kPrimaryColorPurple, fontSize: 18),
               ),*/
-              SizedBox(
-                height: 18,
-              ),
+              // SizedBox(
+              //   height: 18,
+              // ),
               textItem("Email....", _emailController, false),
-              SizedBox(
-                height: 15,
-              ),
+              // SizedBox(
+              //   height: 15,
+              // ),
               textItem("Password...", _pwdController, true),
-              SizedBox(
-                height: 40,
-              ),
+              // SizedBox(
+              //   height: 40,
+              // ),
               colorButton(),
-              SizedBox(
-                height: 20,
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -131,9 +130,6 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
               /*Text(
                 "Forgot Password?",
                 style: TextStyle(
@@ -142,7 +138,12 @@ class _SignInPageState extends State<SignInPage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),*/
-
+              LoginButton(
+                text: 'LOGIN WITH GOOGLE',
+                icon: FontAwesomeIcons.google,
+                color: Colors.black45,
+                loginMethod: auth.googleSignIn,
+              ),
               LoginButton(
                   text: 'Continue as Guest', loginMethod: auth.anonLogin)
             ],
@@ -297,10 +298,9 @@ class LoginButton extends StatelessWidget {
         onPressed: () async {
           var user = await loginMethod();
           if (user != null) {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (builder) => Nav()),
-                (route) => false);
+            if (user != null) {
+              Navigator.pushReplacementNamed(context, '/nav');
+            }
           }
         },
         label: Expanded(

@@ -1,10 +1,10 @@
+import 'package:capstone/Shared/nav.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
-
 import 'Screens/Home/home_screen.dart';
 import 'Screens/Invest/invest_screen.dart';
 import 'Screens/Learn/learn_screen.dart';
@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
           '/home': (context) => Home(),
           '/budget': (context) => Budget(),
           '/topics': (context) => TopicsScreen(),
+          '/nav': (context) => Nav()
         },
 
         // Theme

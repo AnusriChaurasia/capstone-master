@@ -1,5 +1,4 @@
-//import 'dart:io';
-
+import 'package:capstone/Shared/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -25,22 +24,7 @@ class _GraphBState extends State<GraphB> {
     Colors.yellow,
   ];
 
-  ChartType _chartType = ChartType.disc;
   bool _showCenterText = true;
-  double _ringStrokeWidth = 32;
-  double _chartLegendSpacing = 32;
-
-  bool _showLegendsInRow = false;
-  bool _showLegends = true;
-
-  bool _showChartValueBackground = true;
-  bool _showChartValues = true;
-  bool _showChartValuesInPercentage = false;
-  bool _showChartValuesOutside = false;
-
-  LegendShape _legendShape = LegendShape.Circle;
-  LegendPosition _legendPosition = LegendPosition.right;
-
   int key = 0;
 
   @override
@@ -49,35 +33,39 @@ class _GraphBState extends State<GraphB> {
       key: ValueKey(key),
       dataMap: dataMap,
       animationDuration: Duration(milliseconds: 800),
-      chartLegendSpacing: _chartLegendSpacing,
-      chartRadius: MediaQuery.of(context).size.width / 3.2 > 300
-          ? 300
-          : MediaQuery.of(context).size.width / 3.2,
+      chartLegendSpacing: 70,
+      chartRadius: MediaQuery.of(context).size.width / 1.5,
+      // MediaQuery.of(context).size.width / 3.2 > 300
+      //    ? 300
+        //  :
       colorList: colorList,
+      
       initialAngleInDegree: 0,
-      chartType: _chartType,
-      centerText: _showCenterText ? "HYBRID" : null,
+      chartType: ChartType.ring,
+      centerText: _showCenterText ? "INVEST" : null,
+      ringStrokeWidth:50,
       legendOptions: LegendOptions(
-        showLegendsInRow: _showLegendsInRow,
-        legendPosition: _legendPosition,
-        showLegends: _showLegends,
-        legendShape: _legendShape == LegendShape.Circle
+        showLegendsInRow: false,
+        legendPosition: LegendPosition.bottom,
+        showLegends: true,
+        /*legendShape: _legendShape == LegendShape.Circle
             ? BoxShape.circle
-            : BoxShape.rectangle,
+            : BoxShape.rectangle,*/
+        legendShape: BoxShape.circle,
         legendTextStyle: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       chartValuesOptions: ChartValuesOptions(
-        showChartValueBackground: _showChartValueBackground,
-        showChartValues: _showChartValues,
-        showChartValuesInPercentage: _showChartValuesInPercentage,
-        showChartValuesOutside: _showChartValuesOutside,
+        showChartValueBackground: false,
+        showChartValues: true,
+        showChartValuesInPercentage: true,
+        showChartValuesOutside: false,
       ),
-      ringStrokeWidth: _ringStrokeWidth,
+      //ringStrokeWidth: _ringStrokeWidth,
       emptyColor: Colors.grey,
     );
-    final settings = SingleChildScrollView(
+    /*final settings = SingleChildScrollView(
       child: Card(
         margin: EdgeInsets.all(12),
         child: Column(
@@ -319,53 +307,47 @@ class _GraphBState extends State<GraphB> {
           ],
         ),
       ),
-    );
+    );*/
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pie Chart @apgapg"),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                key = key + 1;
-              });
-            },
-            child: Text("Reload".toUpperCase()),
-          ),
-        ],
+        leading: BackButton(
+          color:Colors.black,
+        ),
+        title: Text("Investment Options"),
+        backgroundColor: kPrimaryLightColor,
+
       ),
       body: LayoutBuilder(
+        
         builder: (_, constraints) {
-          if (constraints.maxWidth >= 600) {
-            return Row(
+          return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   fit: FlexFit.tight,
                   child: chart,
                 ),
-                Flexible(
-                  flex: 1,
-                  child: settings,
-                )
               ],
             );
-          } else {
+          /*if (constraints.maxWidth >= 600) {
+            
+          } 
+          else {
             return SingleChildScrollView(
               child: Column(
                 children: [
                   Container(
                     child: chart,
                     margin: EdgeInsets.symmetric(
-                      vertical: 32,
+                      vertical: 80,
                     ),
                   ),
-                  settings,
+                  //settings,
                 ],
               ),
             );
-          }
+          }*/
         },
       ),
     );

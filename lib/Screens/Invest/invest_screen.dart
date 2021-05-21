@@ -1,3 +1,4 @@
+import 'package:capstone/Screens/Invest/chartPos.dart';
 import 'package:capstone/Screens/Invest/graph.dart';
 import 'package:capstone/Screens/Invest/graph2.dart';
 import 'package:capstone/Screens/Invest/graph3.dart';
@@ -19,22 +20,19 @@ class _InvestState extends State<Invest> {
   DatabaseReference _ref;
   String _myActivity;
   final formKey = new GlobalKey<FormState>();
-
   @override
-
   void initState() {
-    // ignore: todo
-    // TODO: implement initState
     super.initState();
     _amountController = TextEditingController();
     _durationController = TextEditingController();
     _ref = FirebaseDatabase.instance.reference().child('Investment Details');
     _myActivity = '';
+    
   }
    Widget build(BuildContext context) {
     return Scaffold( 
-      body: Container(
-        margin: EdgeInsets.all(15),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,14 +41,15 @@ class _InvestState extends State<Invest> {
             SizedBox(height: 15),
             textItem("Duration",_durationController, false),
             SizedBox(height: 15,),
-            Container(
-              color: Colors.white,
+            SingleChildScrollView(
+              //color: Colors.white,
               child: DropDownFormField(
                 required: true,
                 errorText: 'Please select one option',
                 contentPadding: const EdgeInsets.fromLTRB(12, 12, 8, 0),
                 titleText: 'Investment Month',
                 value: _myActivity,
+              
                 onSaved: (value) {setState(() {_myActivity = value;});},
                 onChanged: (value) {setState(() {_myActivity = value;});},
                 dataSource: [
@@ -71,10 +70,6 @@ class _InvestState extends State<Invest> {
                 valueField: 'value',
               ),
             ),
-              
-
-           
-           
            SizedBox(height: 50,),
 
            Center( 
@@ -107,7 +102,7 @@ class _InvestState extends State<Invest> {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => GraphE()));
                     }
                     else {
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => Graph()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => ChartPos()));
                     }                     
                   }  
                 ),
@@ -122,22 +117,15 @@ class _InvestState extends State<Invest> {
   }
 
   void saveDetails(){
-
     String amount = _amountController.text;
     String duration = _durationController.text;
     String month = _myActivity;
-
     Map<String,String> contact = {
       'Amount':amount,
       'Duration': duration,
       'Month' : month,
     };
-
-    _ref.push().set(contact).then((value) {
-      Navigator.pop(context);
-    });
-
-
+    _ref.push().set(contact);
   }
 
   Widget textItem(

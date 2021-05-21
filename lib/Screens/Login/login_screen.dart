@@ -69,7 +69,7 @@ class _SignInPageState extends State<SignInPage> {
           print(userCredential.user.email);
           setState(() {circular = false;});
           Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (builder) => Nav()),(route) => false);
-        } 
+        }
         catch (e) {
           final snackbar = SnackBar(content: Text(e.toString()));
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
